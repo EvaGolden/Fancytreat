@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Fancy's Treats | Cookies & Shakes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFF9F6;
+      font-family: 'Poppins', sans-serif;
+      color: #1E1B17;
+      padding-bottom: 85px;
+    }
+
+    /* Sticky Header with enriched logo area */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      padding: 12px 20px;
+    }
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 77, 77, 0.05);
+      padding: 6px 18px 6px 12px;
+      border-radius: 60px;
+      transition: all 0.3s ease;
+    }
+    .logo-area:hover {
+      background: rgba(255, 77, 77, 0.12);
+    }
+    .logo-icon-left, .logo-icon-right {
+      font-size: 1.6rem;
+      color: #FF6B4A;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .logo-icon-left {
+      animation: bounceSoft 2s infinite ease;
+    }
+    .logo-icon-right {
+      animation: bounceSoft 2s infinite ease 0.3s;
+    }
+    @keyframes bounceSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    .logo img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .logo span {
+      background: linear-gradient(135deg, #E34D2E, #FF8A3C);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Hero with richer gradient */
+    .hero {
+      background: linear-gradient(135deg, rgba(227, 77, 46, 0.88), rgba(255, 138, 60, 0.75)), url('Hero.png');
+      background-size: cover;
+      background-position: center 40%;
+      color: white;
+      text-align: left;
+      padding: 80px 24px;
+      border-radius: 0 0 36px 36px;
+    }
+    .delivery-badge {
+      background: rgba(0,0,0,0.25);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      max-width: 600px;
+    }
+    .hero p {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 16px;
+      max-width: 500px;
+    }
+
+    /* Sections */
+    .treats-section, .milkshake-section, .other-packs-section {
+      padding: 40px 20px 20px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      background: linear-gradient(125deg, #E34D2E, #FF8A3C);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .scroll-row {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 16px;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      /* Subtle infinite movement to indicate scrollability */
+      animation: gentleShimmy 3s infinite ease-in-out;
+      transform-origin: center;
+    }
+    @keyframes gentleShimmy {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+    /* pause animation on hover or while user interacts */
+    .scroll-row:hover, .scroll-row:active {
+      animation-play-state: paused;
+    }
+    .scroll-row::-webkit-scrollbar {
+      height: 5px;
+    }
+    /* Swipe hint now more dynamic */
+    .swipe-hint {
+      text-align: center;
+      margin-top: -15px;
+      margin-bottom: 20px;
+      font-size: 0.8rem;
+      color: #FF8A3C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0.8;
+      background: rgba(255, 138, 60, 0.1);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 6px 16px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+    }
+    .swipe-hint i {
+      font-size: 1rem;
+      animation: slideHorizontal 1.2s infinite;
+    }
+    @keyframes slideHorizontal {
+      0% { transform: translateX(0); opacity: 0.6; }
+      50% { transform: translateX(8px); opacity: 1; }
+      100% { transform: translateX(0); opacity: 0.6; }
+    }
+    .food-card {
+      flex: 0 0 calc((100% - 16px) / 2);
+      background: white;
+      border-radius: 28px;
+      padding: 16px 12px 18px;
+      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      border: 1px solid rgba(227, 77, 46, 0.15);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .food-card:hover {
+      transform: translateY(-4px);
+      border-color: #FF8A3C;
+    }
+    .food-card img, .shake-card img, .other-pack-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      box-shadow: 0 8px 16px -8px rgba(0,0,0,0.1);
+    }
+    .food-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+    .food-card .desc-text {
+      font-size: 0.75rem;
+      color: #776B5F;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .desc-text .full-desc {
+      display: none;
+    }
+    .desc-text.expanded .full-desc {
+      display: inline;
+    }
+    .desc-text.expanded .short-desc {
+      display: none;
+    }
+    .read-more-link {
+      color: #FF8A3C;
+      font-weight: 600;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    .food-card .price, .other-pack-card .price {
+      display: inline-block;
+      font-weight: 800;
+      font-size: 0.85rem;
+      background: #FFF2EC;
+      padding: 4px 14px;
+      border-radius: 40px;
+      color: #E34D2E;
+      margin: 4px 0 12px;
+    }
+    .add-to-cart {
+      display: block;
+      text-align: center;
+      background: linear-gradient(100deg, #E34D2E, #FF8A3C);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 10px 0;
+      border-radius: 60px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: auto;
+    }
+    .add-to-cart:active {
+      transform: scale(0.96);
+    }
+    .glow-add-to-cart {
+      background: linear-gradient(100deg, #E34D2E, #FF8A3C);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 10px 0;
+      border-radius: 60px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: auto;
+      box-shadow: 0 0 10px rgba(227, 77, 46, 0.5);
+      animation: pulse 1.5s infinite;
+    }
+    .glow-add-to-cart:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(227, 77, 46, 0.8);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(227, 77, 46, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(227, 77, 46, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(227, 77, 46, 0); }
+    }
+
+    .milkshake-section {
+      background: linear-gradient(145deg, #FFF0E8 0%, #FFE2D4 100%);
+      border-radius: 48px;
+      margin: 20px 16px 30px;
+      padding: 40px 20px;
+    }
+    .milkshake-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .shake-card {
+      background: white;
+      border-radius: 24px;
+      padding: 14px 12px;
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .shake-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 12px 0 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .shake-price {
+      font-weight: 800;
+      color: #E34D2E;
+      background: #FFF2EC;
+      padding: 2px 8px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+    }
+    .shake-card .desc-text {
+      font-size: 0.7rem;
+      color: #776B5F;
+      line-height: 1.3;
+      margin: 4px 0 8px;
+    }
+    .other-packs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+    .other-pack-card {
+      background: white;
+      border-radius: 28px;
+      padding: 18px 16px 20px;
+      text-align: center;
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .other-pack-card:hover {
+      transform: translateY(-5px);
+    }
+    .other-pack-card h3 {
+      font-size: 1.2rem;
+      margin: 12px 0 6px;
+    }
+    .other-pack-card p {
+      font-size: 0.8rem;
+      color: #776B5F;
+      margin-bottom: 8px;
+    }
+    .other-pack-card .price-tag {
+      font-weight: 800;
+      color: #E34D2E;
+      background: #FFF2EC;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+    .glow-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #E34D2E, #FF8A3C);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 20px auto 0;
+      box-shadow: 0 0 15px rgba(227, 77, 46, 0.5);
+      transition: 0.2s;
+    }
+    .glow-more:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(227, 77, 46, 0.7);
+    }
+    .glow-more i {
+      font-size: 1.2rem;
+    }
+
+    /* Steps section */
+    .steps-section {
+      background: white;
+      margin: 20px 20px 40px;
+      padding: 48px 24px;
+      border-radius: 48px;
+      text-align: center;
+      box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.05);
+    }
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .step-card {
+      flex: 1;
+      min-width: 200px;
+      background: #FFF9F6;
+      border-radius: 32px;
+      padding: 28px 20px;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #E34D2E, #FF8A3C);
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      margin: 0 auto 20px;
+    }
+
+    /* Social Shout-out */
+    .social-section {
+      background: linear-gradient(145deg, #FFF9F6, #FFEFE8);
+      margin: 40px 20px;
+      padding: 48px 24px;
+      border-radius: 48px;
+      text-align: center;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 12px 24px;
+      border-radius: 60px;
+      text-decoration: none;
+      color: #1E1B17;
+      font-weight: 600;
+      transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .social-link i {
+      font-size: 1.4rem;
+    }
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    }
+    .social-link.tiktok i { color: #000000; }
+    .social-link.instagram i { color: #E4405F; }
+    .social-link.whatsapp i { color: #25D366; }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 20px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #5E5546;
+      font-size: 0.7rem;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .nav-item i {
+      font-size: 1.3rem;
+    }
+    .nav-item.active, .nav-item:hover {
+      color: #E34D2E;
+    }
+    .cart-badge {
+      background: #E34D2E;
+      color: white;
+      font-size: 0.6rem;
+      border-radius: 30px;
+      padding: 2px 6px;
+      margin-left: 5px;
+    }
+
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1100;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      max-width: 95%;
+      width: 500px;
+      border-radius: 32px;
+      padding: 24px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+    }
+    .cutoff-notice {
+      background: #FFF3E0;
+      border-left: 4px solid #FF8A3C;
+      padding: 12px 16px;
+      border-radius: 16px;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+    .cutoff-notice i {
+      font-size: 1.2rem;
+      color: #FF8A3C;
+    }
+    .cutoff-notice strong {
+      color: #E34D2E;
+    }
+    .contact-modal .modal-content { text-align: center; }
+    .contact-info { margin: 20px 0; }
+    .contact-info i { font-size: 2rem; color: #E34D2E; margin-bottom: 10px; }
+    .contact-info h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .whatsapp-number { font-size: 1.4rem; font-weight: bold; color: #25D366; text-decoration: none; display: inline-block; margin: 10px 0; }
+    .hours { font-size: 0.9rem; color: #776B5F; margin-top: 15px; }
+
+    /* Cart item styling */
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0e5dd;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cart-item-info { flex: 2; font-weight: 500; font-size: 0.9rem; }
+    .cart-item-price { font-weight: 600; color: #E34D2E; min-width: 70px; }
+    .cart-item-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: #FFF3EF;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .cart-item-controls button {
+      background: white;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #E34D2E;
+    }
+    .remove-item-btn {
+      background: #ffe5e0;
+      color: #d9534f;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .form-group { margin: 12px 0; }
+    .form-group label { font-weight: 600; display: block; margin-bottom: 5px; font-size: 0.85rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 30px;
+      border: 1px solid #FFD2C4;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .cost-breakdown { margin: 16px 0; padding: 12px 0; border-top: 1px solid #f0e5dd; border-bottom: 1px solid #f0e5dd; }
+    .cost-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
+    .cart-total { font-weight: 800; font-size: 1.2rem; margin: 12px 0; text-align: right; border-top: 2px dashed #FFD2C4; padding-top: 12px; }
+    .checkout-btn {
+      background: #25D366;
+      color: white;
+      padding: 14px;
+      border-radius: 60px;
+      border: none;
+      width: 100%;
+      font-weight: 700;
+      margin-top: 16px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .secondary-btn { background: #eee; margin-top: 10px; color: #5E5546; }
+
+    @media (max-width: 768px) {
+      .food-card { flex: 0 0 calc((100% - 16px) / 2); }
+      .hero { text-align: center; }
+      .hero h1 { margin-left: auto; margin-right: auto; }
+      .hero p { margin-left: auto; margin-right: auto; }
+    }
+    @media (min-width: 1024px) {
+      .scroll-row { justify-content: center; flex-wrap: wrap; overflow-x: visible; animation: none; }
+      .food-card { flex: 0 0 calc(33.333% - 16px); max-width: 280px; }
+      .swipe-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky Header with enhanced logo (icons + image) -->
+<header class="sticky-header">
+  <div class="header-container">
+      <div class="logo">
+        <img src="logo.png" alt="Fancy's Treats">
+        <span>Fancy's Treats</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero with background image -->
+<section class="hero" id="home">
+  <div class="delivery-badge">🍪 Lagos-wide delivery · Order by 3pm for same-day</div>
+  <h1>Fancy's Treats<br>Handcrafted Cookies & Shakes</h1>
+  <p>Freshly baked cookies loaded with rich chocolate chunks, and thick creamy shakes — made daily and delivered anywhere in Lagos. No preservatives. Just love.</p>
+</section>
+
+<!-- Cookie Menu with dynamic scroll hint -->
+<section class="treats-section" id="menu">
+  <div class="section-title">Cookie Menu 🍪</div>
+  <div class="swipe-hint"><i class="fas fa-arrow-right"></i> Swipe to see more — cards are moving! <i class="fas fa-arrow-left"></i></div>
+  <div class="scroll-row" id="treats-scroll-container"></div>
+</section>
+
+<!-- Milkshake Selection -->
+<section class="milkshake-section">
+  <div class="section-title" style="background: linear-gradient(135deg, #E34D2E, #FF8A3C); background-clip: text;">Milkshake Selection</div>
+  <div class="milkshake-grid" id="shakes-grid"></div>
+</section>
+
+<!-- Other Packs Section with images -->
+<section class="other-packs-section">
+  <div class="section-title">Other Packs 🎁</div>
+  <div class="other-packs-grid" id="other-packs-grid"></div>
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="morePacksBtn" class="glow-more"><i class="fas fa-star"></i> More Packs <i class="fas fa-angle-right"></i></button>
+  </div>
+</section>
+
+<!-- Steps Section -->
+<section class="steps-section">
+  <h2>Order in 3 Simple Steps</h2>
+  <div class="steps-container">
+    <div class="step-card"><div class="step-number">1</div><i class="fas fa-shopping-cart fa-2x" style="color:#E34D2E; margin-bottom:12px; display:block;"></i><h3>Browse & Choose</h3><p>Pick your favorite treats. Click "Add to Cart".</p></div>
+    <div class="step-card"><div class="step-number">2</div><i class="fas fa-edit fa-2x" style="color:#E34D2E; margin-bottom:12px; display:block;"></i><h3>Review & Adjust</h3><p>Open cart, add/remove items, change quantity before checkout.</p></div>
+    <div class="step-card"><div class="step-number">3</div><i class="fab fa-whatsapp fa-2x" style="color:#E34D2E; margin-bottom:12px; display:block;"></i><h3>Send via WhatsApp</h3><p>Confirm order and we'll deliver!</p></div>
+  </div>
+</section>
+
+<!-- Social Shout-out -->
+<section class="social-section" id="social">
+  <div class="section-title">Join Our Sweet Community</div>
+  <p style="max-width: 600px; margin: 0 auto 20px;">Follow us for daily treats, behind-the-scenes, and exclusive offers!</p>
+  <div class="social-icons">
+    <a href="https://www.tiktok.com/@fancys.treats?_r=1&_t=ZS-9515RRvpwxB" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://www.instagram.com/fancys_treats?igsh=YXQycjJ2Nmc1ejBy&utm_source=qr" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://wa.me/c/2347088820913" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Catalogue</a>
+  </div>
+</section>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <button class="nav-item" data-section="home"><i class="fas fa-home"></i><span>Home</span></button>
+  <button class="nav-item" data-section="menu"><i class="fas fa-utensils"></i><span>Menu</span></button>
+  <button class="nav-item" id="cartBtn"><i class="fas fa-shopping-cart"></i><span>Checkout <span id="cartCount" class="cart-badge">0</span></span></button>
+  <button class="nav-item" id="contactBtn"><i class="fas fa-phone-alt"></i><span>Contact</span></button>
+</div>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <h3><i class="fas fa-shopping-bag"></i> Your Order</h3>
+    <div id="cartItemsList" style="margin: 16px 0;"></div>
+    <div class="cutoff-notice"><i class="fas fa-clock"></i><div><strong>⏰ Order Cutoff: 3:00 PM</strong><br>Orders placed <strong>before 3pm</strong> get <strong>same-day delivery</strong>.<br>After 3pm? <strong>Next day delivery</strong>.</div></div>
+    <div class="form-group"><label><i class="fas fa-map-marker-alt"></i> Delivery Location</label><select id="locationSelect"><option value="VI_Ikoyi" data-fee="1500">Victoria Island / Ikoyi - ₦1,500</option><option value="Lekki_1_2" data-fee="1500">Lekki Phase 1 & 2 - ₦1,500</option><option value="Ajah" data-fee="2000">Ajah / Sangotedo - ₦2,000</option><option value="Lagos_Island" data-fee="1200">Lagos Island - ₦1,200</option><option value="Yaba_Surulere" data-fee="1500">Yaba / Surulere - ₦1,500</option><option value="Ikeja" data-fee="1800">Ikeja / Maryland - ₦1,800</option><option value="Gbagada" data-fee="1800">Gbagada / Anthony - ₦1,800</option><option value="Other" data-fee="0">Other Lagos areas (contact us) - ₦0</option></select></div>
+    <div class="form-group"><label>Full Address <span>(required)</span></label><textarea id="address" rows="2" placeholder="Street, landmark, building"></textarea></div>
+    <div class="form-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" id="customerName" placeholder="Your name"></div>
+    <div class="form-group"><label><i class="fab fa-whatsapp"></i> Phone (WhatsApp)</label><input type="tel" id="customerPhone" placeholder="080XXXXXXXX"></div>
+    <div class="form-group"><label><i class="fas fa-pen"></i> Special Notes</label><textarea id="orderNotes" rows="2" placeholder="e.g., Extra chocolate, no nuts, etc."></textarea></div>
+    <div class="cost-breakdown"><div class="cost-row"><span>Subtotal</span><span id="subtotalDisplay">₦0</span></div><div class="cost-row"><span>Delivery Fee</span><span id="deliveryFeeDisplay">₦0</span></div></div>
+    <div id="cartTotal" class="cart-total">Total: ₦0</div>
+    <button id="sendWhatsapp" class="checkout-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+    <button id="closeModal" class="checkout-btn secondary-btn"><i class="fas fa-times"></i> Close</button>
+  </div>
+</div>
+
+<!-- More Packs Modal -->
+<div id="morePacksModal" class="modal">
+  <div class="modal-content">
+    <h3><i class="fas fa-gift"></i> More Packs & Bundles</h3>
+    <div id="morePacksList" style="margin: 20px 0; display: grid; gap: 16px;"></div>
+    <button id="closeMorePacksModal" class="checkout-btn secondary-btn">Close</button>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal contact-modal">
+  <div class="modal-content">
+    <h2><i class="fas fa-headset"></i> We're Here to Help</h2>
+    <p>Have questions about your order, allergies, custom orders, or corporate gifting? Reach out — we're always happy to help!</p>
+    <div class="contact-info"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><a href="https://wa.me/2347088820913" target="_blank" class="whatsapp-number">+234 708 882 0913</a><div class="hours"><i class="far fa-clock"></i> Mon–Sat, 8am–8pm</div></div>
+    <button id="closeContactModal" class="checkout-btn secondary-btn">Close</button>
+  </div>
+</div>
+
+<script>
+  // Cookie Menu Data
+  const cookieMenu = [
+    { name: "Cup cookies 🍪", desc: "Mini cookies baked fresh loaded with rich chocolate chunks and fillings + dipping dark Chocolate and white Chocolate.", price: 15000, img: "cup.jpg" },
+    { name: "Midnight Crumble 🍪", desc: "A box of Mini cookies baked fresh loaded with rich chocolate chunks and fillings in a box with dipping dark Chocolate and white chocolate 😊", price: 28000, img: "midnight.jpg" },
+    { name: "Cookie charm 🍪", desc: "A single piece of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh. Flavors: Vanilla, Red Velvet, Triple chocolate chip.", price: 4500, img: "cookie.jpg" },
+    { name: "Box of 4 🍪", desc: "4 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 18000, img: "box12.png" },
+    { name: "Box of 6 🍪🍪🍪🍪🍪🍪", desc: "6 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 26000, img: "box6.png" },
+    { name: "Box of 12 🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪", desc: "12 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 48000, img: "box4.png" }
+  ];
+
+  const shakesData = [
+    { name: "Vanilla Dream", desc: "Velvety vanilla bean blended to perfection", price: 18000, img: "vanilla.jpg" },
+    { name: "Strawberry Bliss", desc: "Real strawberries, creamy and fresh", price: 19000, img: "strawberry.jpg" },
+    { name: "Oreo Extreme", desc: "Crushed Oreos + chocolate syrup", price: 21000, img: "oreo.jpg" },
+    { name: "Lotus Biscoff", desc: "Caramelised biscuit spread & crumbs", price: 25000, img: "lotus.jpg" }
+  ];
+
+  const featuredPacks = [
+    { name: "Big size", desc: "Big size (550ml)", price: 10000, img: "big.jpg" },
+    { name: "Triple Treats", desc: "Triple Treat (3 medium size parfait + 3 granola ).", price: 21000, img: "triple.jpg" },
+    { name: "Medium Size", desc: "medium size", price: 7000, img: "medium.jpg" }
+  ];
+
+  const additionalPacks = [
+    { name: "1L Parfait", desc: "1L bowl of Parfait ", price: 18500, img: "1liter.jpg" },
+    { name: "Twin Treat", desc: "Twin treat B", price: 14000, img: "twin.jpg" },
+    { name: "Small Cup", desc: "Small Cup (250ml)", price: 4000, img: "small.jpg" },
+  
+  ];
+  let cart = [];
+
+  const cartItemsList = document.getElementById('cartItemsList');
+  const subtotalDisplay = document.getElementById('subtotalDisplay');
+  const deliveryFeeDisplay = document.getElementById('deliveryFeeDisplay');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const locationSelect = document.getElementById('locationSelect');
+  const addressTextarea = document.getElementById('address');
+  const customerName = document.getElementById('customerName');
+  const customerPhone = document.getElementById('customerPhone');
+  const orderNotes = document.getElementById('orderNotes');
+
+  function updateCartBadge() {
+    const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cartCount').innerText = totalQty;
+  }
+
+  function showToast(msg) {
+    let toast = document.createElement('div');
+    toast.innerText = msg;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '80px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = '#1E1B17';
+    toast.style.color = 'white';
+    toast.style.padding = '10px 18px';
+    toast.style.borderRadius = '40px';
+    toast.style.fontSize = '0.8rem';
+    toast.style.zIndex = '1200';
+    toast.style.fontWeight = '500';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 1800);
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) existing.quantity++;
+    else cart.push({ name, price, quantity: 1 });
+    updateCartBadge();
+    showToast(`✓ ${name} added to cart`);
+    if (document.getElementById('checkoutModal').style.display === 'flex') {
+      renderCartModal();
+      updateTotals();
+    }
+  }
+
+  function increaseQuantity(index) {
+    if (cart[index]) { cart[index].quantity++; updateCartBadge(); if (isModalOpen()) { renderCartModal(); updateTotals(); } }
+  }
+  function decreaseQuantity(index) {
+    if (cart[index]) { if (cart[index].quantity > 1) cart[index].quantity--; else cart.splice(index, 1); updateCartBadge(); if (isModalOpen()) { renderCartModal(); updateTotals(); } }
+  }
+  function removeItem(index) { cart.splice(index, 1); updateCartBadge(); if (isModalOpen()) { renderCartModal(); updateTotals(); } showToast(`Item removed`); }
+  function isModalOpen() { return document.getElementById('checkoutModal').style.display === 'flex'; }
+  function getSubtotal() { return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0); }
+  function getDeliveryFee() { const selectedOption = locationSelect.options[locationSelect.selectedIndex]; return parseInt(selectedOption.getAttribute('data-fee')) || 0; }
+  function updateTotals() { const subtotal = getSubtotal(); const deliveryFee = getDeliveryFee(); subtotalDisplay.innerText = `₦${subtotal.toLocaleString()}`; deliveryFeeDisplay.innerText = `₦${deliveryFee.toLocaleString()}`; cartTotalEl.innerHTML = `Total: ₦${(subtotal + deliveryFee).toLocaleString()}`; }
+  function renderCartModal() { if (!cartItemsList) return; if (cart.length === 0) { cartItemsList.innerHTML = `<div style="text-align:center; padding: 30px 0; color:#aaa;"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i><p>Your cart is empty. Add some delicious treats!</p></div>`; updateTotals(); return; } let html = ''; cart.forEach((item, idx) => { const itemTotal = item.price * item.quantity; html += `<div class="cart-item"><div class="cart-item-info"><strong>${item.name}</strong><br><small style="color:#E34D2E;">₦${item.price.toLocaleString()} each</small></div><div class="cart-item-price">₦${itemTotal.toLocaleString()}</div><div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;"><div class="cart-item-controls"><button class="qty-minus" data-index="${idx}">−</button><span style="min-width: 28px; text-align: center; font-weight:600;">${item.quantity}</span><button class="qty-plus" data-index="${idx}">+</button></div><button class="remove-item-btn" data-index="${idx}"><i class="fas fa-trash-alt"></i> Remove</button></div></div>`; }); cartItemsList.innerHTML = html; document.querySelectorAll('.qty-plus').forEach(btn => btn.addEventListener('click', (e) => { const idx = parseInt(btn.getAttribute('data-index')); increaseQuantity(idx); })); document.querySelectorAll('.qty-minus').forEach(btn => btn.addEventListener('click', (e) => { const idx = parseInt(btn.getAttribute('data-index')); decreaseQuantity(idx); })); document.querySelectorAll('.remove-item-btn').forEach(btn => btn.addEventListener('click', (e) => { const idx = parseInt(btn.getAttribute('data-index')); removeItem(idx); })); updateTotals(); }
+  function generateWhatsAppMessage() { if (cart.length === 0) return "🍪 *FANCY'S TREATS* 🥤\n\nYour cart is empty."; const subtotal = getSubtotal(); const deliveryFee = getDeliveryFee(); const total = subtotal + deliveryFee; const deliveryLocation = locationSelect.options[locationSelect.selectedIndex].text.split(' - ')[0]; const address = addressTextarea.value.trim() || "—"; const name = customerName.value.trim() || "—"; const phone = customerPhone.value.trim() || "—"; const notes = orderNotes.value.trim() || "—"; let orderLines = ''; cart.forEach(item => { orderLines += `🍪 ${item.quantity} x ${item.name} — ₦${(item.price * item.quantity).toLocaleString()}\n`; }); let message = `🍪 *FANCY'S TREATS ORDER* 🥤\n\n${orderLines}\n────────────────\n📦 *Subtotal:* ₦${subtotal.toLocaleString()}\n🚚 *Delivery area:* ${deliveryLocation}\n🚚 *Delivery fee:* ₦${deliveryFee.toLocaleString()}\n💰 *TOTAL:* ₦${total.toLocaleString()}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n📝 *Notes:* ${notes}\n\n✨ *Thank you for choosing Fancy's Treats! We'll confirm your order shortly.* ✨`; return message; }
+  function openCheckoutModal() { if (cart.length === 0) { showToast("Your cart is empty. Add some delicious treats first!"); return; } renderCartModal(); document.getElementById('checkoutModal').style.display = 'flex'; updateTotals(); }
+  function closeModal() { document.getElementById('checkoutModal').style.display = 'none'; }
+  function sendOrderToWhatsApp() { if (cart.length === 0) { showToast("Cart is empty, nothing to send."); closeModal(); return; } if (!addressTextarea.value.trim()) { showToast("Please enter your delivery address."); return; } if (!customerName.value.trim()) { showToast("Please enter your name."); return; } if (!customerPhone.value.trim()) { showToast("Please enter your phone number."); return; } const message = generateWhatsAppMessage(); window.open(`https://wa.me/2347088820913?text=${encodeURIComponent(message)}`, '_blank'); cart = []; updateCartBadge(); closeModal(); showToast("✨ Order sent! We'll respond on WhatsApp."); }
+  function truncateText(text, maxLength = 70) { if (text.length <= maxLength) return { short: text, full: text, needsTruncation: false }; const short = text.substring(0, maxLength) + '...'; return { short, full: text, needsTruncation: true }; }
+  function createDescriptionHtml(fullDesc) { const trunc = truncateText(fullDesc); if (!trunc.needsTruncation) { return `<div class="desc-text">${fullDesc}</div>`; } return `<div class="desc-text"><span class="short-desc">${trunc.short}</span><span class="full-desc" style="display:none;">${fullDesc}</span><span class="read-more-link">Read more</span></div>`; }
+  function attachReadMoreEvents() { document.querySelectorAll('.read-more-link').forEach(link => { link.addEventListener('click', (e) => { e.stopPropagation(); const descDiv = link.closest('.desc-text'); const shortSpan = descDiv.querySelector('.short-desc'); const fullSpan = descDiv.querySelector('.full-desc'); if (fullSpan.style.display === 'none') { shortSpan.style.display = 'none'; fullSpan.style.display = 'inline'; link.textContent = 'Read less'; } else { shortSpan.style.display = 'inline'; fullSpan.style.display = 'none'; link.textContent = 'Read more'; } }); }); }
+  function renderProducts() { const treatsContainer = document.getElementById('treats-scroll-container'); treatsContainer.innerHTML = cookieMenu.map(t => `<div class="food-card"><img src="${t.img}" alt="${t.name}" loading="lazy"><h4>${t.name}</h4>${createDescriptionHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join(''); const shakesContainer = document.getElementById('shakes-grid'); shakesContainer.innerHTML = shakesData.map(s => `<div class="shake-card"><img src="${s.img}" alt="${s.name}" loading="lazy"><h4><span>${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescriptionHtml(s.desc)}<button class="add-to-cart" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`).join(''); attachReadMoreEvents(); }
+  function renderFeaturedPacks() { const container = document.getElementById('other-packs-grid'); container.innerHTML = featuredPacks.map(pack => `<div class="other-pack-card"><img src="${pack.img}" alt="${pack.name}" loading="lazy"><h3>${pack.name}</h3><p>${pack.desc}</p><div class="price-tag">From ₦${pack.price.toLocaleString()}</div></div>`).join(''); }
+  function openMorePacksModal() { const container = document.getElementById('morePacksList'); container.innerHTML = additionalPacks.map((pack) => `<div class="food-card" style="margin: 0; flex: auto;"><img src="${pack.img}" alt="${pack.name}"><h4>${pack.name}</h4>${createDescriptionHtml(pack.desc)}<div class="price">₦${pack.price.toLocaleString()}</div><button class="glow-add-to-cart" data-name="${pack.name}" data-price="${pack.price}">Add to Cart</button></div>`).join(''); attachReadMoreEvents(); document.querySelectorAll('#morePacksList .glow-add-to-cart').forEach(btn => { btn.addEventListener('click', (e) => { const name = btn.getAttribute('data-name'); const price = parseInt(btn.getAttribute('data-price')); addToCart(name, price); }); }); document.getElementById('morePacksModal').style.display = 'flex'; }
+  function closeMorePacksModal() { document.getElementById('morePacksModal').style.display = 'none'; }
+  function attachCartEventsOnce() { document.querySelectorAll('.add-to-cart').forEach(btn => { btn.removeEventListener('click', window._cartHandler); const handler = (e) => { const name = btn.getAttribute('data-name'); const price = parseInt(btn.getAttribute('data-price')); addToCart(name, price); }; btn.addEventListener('click', handler); window._cartHandler = handler; }); }
+  function scrollToSection(sectionId) { const element = document.getElementById(sectionId); if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  document.querySelectorAll('.nav-item[data-section]').forEach(btn => { btn.addEventListener('click', () => { const section = btn.getAttribute('data-section'); if (section === 'home') window.scrollTo({ top: 0, behavior: 'smooth' }); else if (section === 'menu') scrollToSection('menu'); }); });
+  const contactModal = document.getElementById('contactModal'); const contactBtn = document.getElementById('contactBtn'); const closeContactModal = document.getElementById('closeContactModal'); contactBtn.addEventListener('click', () => contactModal.style.display = 'flex'); closeContactModal.addEventListener('click', () => contactModal.style.display = 'none'); window.addEventListener('click', (e) => { if (e.target === contactModal) contactModal.style.display = 'none'; if (e.target === document.getElementById('morePacksModal')) closeMorePacksModal(); });
+  document.getElementById('morePacksBtn').addEventListener('click', openMorePacksModal); document.getElementById('closeMorePacksModal').addEventListener('click', closeMorePacksModal);
+  document.getElementById('cartBtn').addEventListener('click', openCheckoutModal); document.getElementById('closeModal').addEventListener('click', closeModal); document.getElementById('sendWhatsapp').addEventListener('click', sendOrderToWhatsApp); window.onclick = (e) => { if (e.target === document.getElementById('checkoutModal')) closeModal(); }; locationSelect.addEventListener('change', () => { if (isModalOpen()) updateTotals(); });
+  renderProducts(); renderFeaturedPacks(); attachCartEventsOnce(); updateCartBadge();
+</script>
+</body>
+</html>
