@@ -189,42 +189,36 @@
       justify-content: center;
       gap: 12px;
     }
+
+    /* Horizontal carousel styles */
+    .carousel-wrapper {
+      position: relative;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
     .scroll-row {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding-bottom: 16px;
+      scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      animation: gentleShimmy 3s infinite ease-in-out;
+      padding-bottom: 16px;
+      padding-right: 20px;
     }
-    @keyframes gentleShimmy {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(3px); }
-      75% { transform: translateX(-3px); }
-      100% { transform: translateX(0); }
+    .scroll-row::-webkit-scrollbar {
+      height: 6px;
     }
-    .scroll-row:hover { animation-play-state: paused; }
-    .scroll-row::-webkit-scrollbar { height: 5px; }
-    .swipe-hint {
-      text-align: center;
-      margin-top: -15px;
-      margin-bottom: 20px;
-      font-size: 0.8rem;
-      color: #FF8A3C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: rgba(255, 138, 60, 0.1);
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 6px 16px;
-      border-radius: 60px;
+    .scroll-row::-webkit-scrollbar-track {
+      background: #FFE2D4;
+      border-radius: 10px;
+    }
+    .scroll-row::-webkit-scrollbar-thumb {
+      background: #FF8A3C;
+      border-radius: 10px;
     }
     .food-card {
-      flex: 0 0 calc((100% - 16px) / 2);
+      flex: 0 0 280px;
       background: white;
       border-radius: 28px;
       padding: 16px 12px 18px;
@@ -233,8 +227,13 @@
       border: 1px solid rgba(227, 77, 46, 0.15);
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .food-card:hover { transform: translateY(-4px); border-color: #FF8A3C; }
+    .food-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px -12px rgba(227, 77, 46, 0.2);
+      border-color: #FF8A3C;
+    }
     .food-card img, .shake-card img, .vertical-pack-card img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -289,6 +288,39 @@
       margin-top: auto;
     }
     .add-to-cart:active { transform: scale(0.96); }
+
+    /* Dots indicator */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #FFD2C4;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: #E34D2E;
+      transform: scale(1.2);
+      width: 24px;
+      border-radius: 20px;
+    }
+
+    /* Hide scrollbar on webkit for cleaner look (optional) */
+    .scroll-row {
+      scrollbar-width: thin;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .food-card { flex: 0 0 calc(100% - 40px); }
+      .scroll-row { gap: 16px; padding-right: 16px; }
+    }
 
     .milkshake-section {
       background: linear-gradient(145deg, #FFF0E8 0%, #FFE2D4 100%);
@@ -907,7 +939,6 @@
     }
 
     @media (max-width: 768px) {
-      .food-card { flex: 0 0 calc((100% - 16px) / 2); }
       .vertical-pack-card { flex-direction: column; text-align: center; padding: 20px; }
       .card-action { width: 100%; margin-top: 12px; text-align: center; }
       .vertical-pack-card .card-img { width: 120px; height: 120px; margin: 0 auto; }
@@ -915,11 +946,6 @@
       .category-title { font-size: 1.3rem; }
       .contact-card { padding: 12px; }
       .contact-icon { width: 40px; height: 40px; font-size: 1.2rem; }
-    }
-    @media (min-width: 1024px) {
-      .scroll-row { justify-content: center; flex-wrap: wrap; overflow-x: visible; animation: none; }
-      .food-card { flex: 0 0 calc(33.333% - 16px); max-width: 280px; }
-      .swipe-hint { display: none; }
     }
   </style>
 </head>
@@ -941,16 +967,19 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-headline">Crafted For Sweet Moments</div>
-    <div class="hero-subhead">Luxury Treat That Gives You That "O my God Moment"</div>    
-    <div class="hero-description">Fancy's treats — Crafted for sweet moments. Freshly baked cookies loaded with rich chocolate chunks, thick creamy milkshake and Premium Parfaits.</div>
+    <div class="hero-subhead">Premium Treat That Gives You That<br> "Oh my God moment 🤩"</div>    
+    <div class="hero-description">Fancy's treats Crafted for sweet moments. Freshly baked cookies loaded with rich chocolate chunks, thick creamy milkshake and Premium Parfaits.</div>
     <button class="hero-btn" id="heroOrderBtn"><i class="fas fa-shopping-cart"></i> Order Now</button>
   </div>
 </section>
 
 <section class="treats-section" id="menu">
   <div class="section-title">Cookie Menu 🍪</div>
-  <div class="swipe-hint"><i class="fas fa-arrow-right"></i> Swipe to see more <i class="fas fa-arrow-left"></i></div>
-  <div class="scroll-row" id="treats-scroll-container"></div>
+  <div class="carousel-wrapper">
+    <div class="scroll-row" id="treats-scroll-container"></div>
+    <div class="carousel-dots" id="carousel-dots"></div>
+  </div>
+  <div class="swipe-hint"><i class="fas fa-arrow-right"></i> Swipe or scroll to see more <i class="fas fa-arrow-left"></i></div>
 </section>
 
 <section class="milkshake-section">
@@ -1002,7 +1031,6 @@
   <div class="modal-content">
     <h3><i class="fas fa-shopping-bag"></i> Your Order</h3>
     <div id="cartItemsList"></div>
-  
     <div class="form-group">
       <label><i class="fas fa-map-marker-alt"></i> Delivery Location</label>
       <select id="locationSelect">
@@ -1045,14 +1073,14 @@
       { name: "Small Cup Parfait", desc: "Small Cup (250ml) - On-the-go delight, ideal for a quick treat", price: 4000, img: "small.jpg" },
       { name: "Medium Size Parfait", desc: "Medium size (350ml) - Perfect snack for one, rich and creamy", price: 7000, img: "medium.jpg" },
       { name: "Big Size Parfait", desc: "Big size (550ml) - Thick parfait delight with layers of cream and toppings", price: 10000, img: "big.jpg" },
-      { name: "1L Family Parfait", desc: "1L bowl of Parfait - Generous family size, perfect for sharing", price: 18500, img: "1liter.jpg" }
+      { name: "1L of Parfait", desc: "1L bowl of Parfait", price: 18500, img: "1liter.jpg" }
     ]},
-    { name: "🎁 Bundle Offers", icon: "fa-gift", items: [
+    { name: "🎁 Combo Deals", icon: "fa-gift", items: [
       { name: "Twin Treats A", desc: "Two Small Size Parfait (250ml)", price: 8000, img: "twina.jpg" },
       { name: "Twin Treat B", desc: "2 medium parfait (450ml)", price: 14000, img: "twin.jpg" },
       { name: "Triple Treats", desc: "3 medium size parfait (450ml)", price: 21000, img: "triple.jpg" },
-      { name: "18K Combo", desc: "2 medium size parfait (450ml)+ 1 small size parfait", price: 18000, img: "12.jpg" },
-      { name: "12k Combo", desc: "3 small size parfait (250ml)", price: 12000, img: "small.jpg" },
+      { name: "18K Combo", desc: "2 medium size parfait (450ml)+ 1 small size parfait", price: 18000, img: "18.jpg" },
+      { name: "12k Combo", desc: "3 small size parfait (250ml)", price: 12000, img: "12.jpg" },
       { name: "21k Combo B", desc: "1 550ml parfait, + 1 450ml parfait + 200ml parfait)", price: 21000, img: "21.jpg" }
     ]}
   ];
@@ -1153,7 +1181,7 @@
   const cookieMenu = [
     { name: "Cup cookies 🍪", desc: "Mini cookies baked fresh loaded with rich chocolate chunks and fillings + dipping dark Chocolate and white Chocolate.", price: 15000, img: "cup.jpg" },
     { name: "Midnight Crumble 🍪", desc: "A box of Mini cookies baked fresh loaded with rich chocolate chunks and fillings in a box with dipping dark Chocolate and white chocolate 😊", price: 28000, img: "midnight.jpg" },
-    { name: "Cookie charm 🍪", desc: "A single piece of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh. Flavors: Vanilla, Red Velvet, Triple chocolate chip.", price: 4500, img: "cookie.jpg" },
+    { name: "Cookie charm 🍪", desc: "A single piece of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh. Flavors: Vanilla, Red Velvet, Triple chocolate chip.", price: 5000, img: "cookie.jpg" },
     { name: "Box of 4 🍪", desc: "4 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 18000, img: "box12.png" },
     { name: "Box of 6 🍪", desc: "6 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 26000, img: "box6.png" },
     { name: "Box of 12 🍪", desc: "12 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 48000, img: "box4.png" }
@@ -1166,11 +1194,45 @@
   ];
   function renderProducts() {
     const treatsContainer = document.getElementById('treats-scroll-container');
-    treatsContainer.innerHTML = cookieMenu.map(t => `<div class="food-card"><img src="${t.img}" alt="${t.name}"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join('');
+    treatsContainer.innerHTML = cookieMenu.map((t, idx) => `<div class="food-card" data-index="${idx}"><img src="${t.img}" alt="${t.name}"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join('');
     const shakesContainer = document.getElementById('shakes-grid');
     shakesContainer.innerHTML = shakesData.map(s => `<div class="shake-card"><img src="${s.img}" alt="${s.name}"><h4><span>${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescHtml(s.desc)}<button class="add-to-cart" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`).join('');
     attachReadMore();
     document.querySelectorAll('.add-to-cart').forEach(btn => { btn.addEventListener('click',()=>{ addToCart(btn.dataset.name, parseInt(btn.dataset.price)); }); });
+    
+    // Setup carousel dots
+    const scrollRow = treatsContainer;
+    const dotsContainer = document.getElementById('carousel-dots');
+    const totalCards = cookieMenu.length;
+    
+    // Generate dots
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalCards; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dot.addEventListener('click', () => {
+        const cardWidth = document.querySelector('.food-card')?.offsetWidth || 280;
+        const gap = 20;
+        const scrollTo = (cardWidth + gap) * i;
+        scrollRow.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    }
+    
+    function updateActiveDot() {
+      const cardWidth = document.querySelector('.food-card')?.offsetWidth || 280;
+      const gap = 20;
+      const scrollPosition = scrollRow.scrollLeft;
+      const activeIndex = Math.round(scrollPosition / (cardWidth + gap));
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if (idx === activeIndex) dot.classList.add('active');
+        else dot.classList.remove('active');
+      });
+    }
+    
+    scrollRow.addEventListener('scroll', updateActiveDot);
+    setTimeout(updateActiveDot, 100); // initial update
   }
   
   document.getElementById('cartBtn').addEventListener('click', openCheckoutModal);
