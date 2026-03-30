@@ -1141,7 +1141,7 @@
           </div>
         </div>
       `;
-      if(cat.name === "🎁 Bundle Offers") {
+      if(cat.name === "🎁 Combo Deals") {
         finalHtml += `
           <div class="toppings-extra-block">
             <div class="toppings-header">
@@ -1178,8 +1178,10 @@
     });
   }
 
+  // Updated cookie menu with requested Mini Cupcake (₦5,000) and Cup Cookies (₦10,000)
   const cookieMenu = [
-    { name: "Cup cookies 🍪", desc: "Mini cookies baked fresh loaded with rich chocolate chunks and fillings + dipping dark Chocolate and white Chocolate.", price: 15000, img: "cup.jpg" },
+    { name: "Mini Cupcake 🧁", desc: "Delicious mini cupcake with silky buttercream frosting, sprinkles and a surprise center. Bite-sized happiness!", price: 5000, img: "mini.jpg" },
+    { name: "Cup Cookies 🍪 (10k)", desc: "A charming cup filled with freshly baked mini cookies, drizzled with white & dark chocolate. Perfect for sharing.", price: 10000, img: "cup.jpg" },
     { name: "Midnight Crumble 🍪", desc: "A box of Mini cookies baked fresh loaded with rich chocolate chunks and fillings in a box with dipping dark Chocolate and white chocolate 😊", price: 28000, img: "midnight.jpg" },
     { name: "Cookie charm 🍪", desc: "A single piece of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh. Flavors: Vanilla, Red Velvet, Triple chocolate chip.", price: 5000, img: "cookie.jpg" },
     { name: "Box of 4 🍪", desc: "4 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 18000, img: "box12.png" },
@@ -1187,16 +1189,16 @@
     { name: "Box of 12 🍪", desc: "12 Pieces of Big size Thick, buttery cookies loaded with rich chocolate chunks and baked fresh.", price: 48000, img: "box4.png" }
   ];
   const shakesData = [
-    { name: "Vanilla Shake✨", desc: "Smooth vanilla cream blended to a rich velvety finish", price: 18000, img: "vanilla.jpg" },
-    { name: "Strawberry Shake✨", desc: "Strawberry flavoured milkshake blended into a smooth, creamy indulgence", price: 18000, img: "strawberry.jpg" },
-    { name: "Oreo Delight✨", desc: "Crushed Oreo blended into a rich chocolate blend", price: 20000, img: "oreo.jpg" },
-    { name: "Lotus Bliss✨", desc: "Biscofs spread and biscuits blended into a deep caramelised cream", price: 25000, img: "lotus.jpg" }
+    { name: "Vanilla Shake✨", desc: "Smooth vanilla cream blended to a rich velvety finish", price: 15000, img: "vanilla.jpg" },
+    { name: "Strawberry Shake✨", desc: "Strawberry flavoured milkshake blended into a smooth, creamy indulgence", price: 15000, img: "strawberry.jpg" },
+    { name: "Oreo Delight✨", desc: "Crushed Oreo blended into a rich chocolate blend", price: 16000, img: "oreo.jpg" },
+    { name: "Lotus Bliss✨", desc: "Biscofs spread and biscuits blended into a deep caramelised cream", price: 18000, img: "lotus.jpg" }
   ];
   function renderProducts() {
     const treatsContainer = document.getElementById('treats-scroll-container');
-    treatsContainer.innerHTML = cookieMenu.map((t, idx) => `<div class="food-card" data-index="${idx}"><img src="${t.img}" alt="${t.name}"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join('');
+    treatsContainer.innerHTML = cookieMenu.map((t, idx) => `<div class="food-card" data-index="${idx}"><img src="${t.img}" alt="${t.name}" onerror="this.src='https://placehold.co/300x300?text=Yummy'"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join('');
     const shakesContainer = document.getElementById('shakes-grid');
-    shakesContainer.innerHTML = shakesData.map(s => `<div class="shake-card"><img src="${s.img}" alt="${s.name}"><h4><span>${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescHtml(s.desc)}<button class="add-to-cart" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`).join('');
+    shakesContainer.innerHTML = shakesData.map(s => `<div class="shake-card"><img src="${s.img}" alt="${s.name}" onerror="this.src='https://placehold.co/200x200?text=Shake'"><h4><span>${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescHtml(s.desc)}<button class="add-to-cart" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`).join('');
     attachReadMore();
     document.querySelectorAll('.add-to-cart').forEach(btn => { btn.addEventListener('click',()=>{ addToCart(btn.dataset.name, parseInt(btn.dataset.price)); }); });
     
