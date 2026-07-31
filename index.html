@@ -3,29 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <meta name="description" content="Fancy's Treats – Freshly baked cookies, creamy milkshakes, and premium parfaits made daily. Order now for delivery on Lagos Island.">
+  <meta name="description" content="Fancy's Treats – Freshly baked cookies, creamy milkshakes, and premium parfaits made daily. Order now for delivery on Lagos Island.">
   <title>Fancy's Treats | Freshly Baked Cookies & Shakes</title>
+
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1241870411438418');
-fbq('track', 'PageView');
-</script>
-<noscript>
- <img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1241870411438418');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
+    /* ====== YOUR EXISTING STYLES (unchanged) ====== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #FFF9F6; font-family: 'Poppins', sans-serif; color: #1E1B17; padding-bottom: 85px; }
     .sticky-header { position: sticky; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); z-index: 1000; padding: 12px 20px; }
@@ -49,13 +53,10 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
     .treats-section, .milkshake-section, .other-packs-section { padding: 40px 20px 20px; }
     .parfait-section { position: relative; padding: 60px 20px 50px; margin: 20px 16px 30px; border-radius: 48px; overflow: hidden; background: #1E1B17; /* fallback dark */ }
     .parfait-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-    /* Darker overlay for better video contrast */
     .parfait-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(2px); z-index: 1; }
-    .parfait-section .section-title, 
-    .parfait-section .carousel-wrapper { position: relative; z-index: 2; }
-    /* Make title text pop on dark background */
+    .parfait-section .section-title, .parfait-section .carousel-wrapper { position: relative; z-index: 2; }
     .parfait-section .section-title { background: linear-gradient(125deg, #FFB347, #FF8A3C); background-clip: text; -webkit-background-clip: text; color: transparent; text-shadow: none; }
-    .section-title { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 32px; background: linear-gradient(125deg, #E34D2E, #FF8A3C); background-clip: text; -webkit-background-clip: text; color: transparent; display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .section-title { text-align: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; background: linear-gradient(125deg, #E34D2E, #FF8A3C); background-clip: text; -webkit-background-clip: text; color: transparent; display: flex; align-items: center; justify-content: center; gap: 12px; }
     .carousel-wrapper { position: relative; margin: 0 auto; max-width: 1200px; }
     .scroll-row { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding-bottom: 16px; padding-right: 20px; }
     .scroll-row::-webkit-scrollbar { height: 6px; }
@@ -163,10 +164,47 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
     .contact-details p, .contact-details a { font-size: 0.9rem; color: #5E5546; text-decoration: none; line-height: 1.4; }
     .contact-details a:hover { color: #E34D2E; }
     @media (max-width: 768px) { .vertical-pack-card { flex-direction: column; text-align: center; } .card-action { width: 100%; } .contact-card { padding: 12px; } .contact-icon { width: 40px; height: 40px; font-size: 1.2rem; } }
+
+    /* ====== Floating WhatsApp Button ====== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: white;
+      font-size: 32px;
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+    }
+    .floating-whatsapp:active {
+      transform: scale(0.95);
+    }
+    @media (max-width: 480px) {
+      .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+        bottom: 80px;
+        right: 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
+<!-- ====== EXISTING HTML (unchanged) ====== -->
 <header class="sticky-header">
   <div class="header-container"><div class="logo"><img src="logo.png" alt="Fancy's Treats" onerror="this.style.display='none'"><span>Fancy's Treats</span></div></div>
 </header>
@@ -181,14 +219,13 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
 
 <section class="milkshake-section"><div class="section-title">Milkshake Selection</div><div class="milkshake-grid" id="shakes-grid"></div></section>
 
-<!-- PARFAIT SECTION WITH DARK OVERLAY -->
 <section class="parfait-section" id="parfait">
   <video class="parfait-video-bg" autoplay loop muted playsinline poster="https://placehold.co/1920x1080/1E1B17/FF8A3C?text=Parfait+Video">
     <source src="parfait-bg.mp4" type="video/mp4">
     <source src="hero.mp4" type="video/mp4">
   </video>
   <div class="parfait-overlay"></div>
-  <div class="section-title"><i class="fas fa-ice-cream"></i> Parfait Collection 🍨</div>
+  <div class="section-title"><i class="fas fa-ice-cream"></i> Parfait Section🍨</div>
   <div class="carousel-wrapper">
     <div class="scroll-row" id="parfait-scroll-container"></div>
     <div class="carousel-dots" id="parfait-dots"></div>
@@ -213,7 +250,6 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
 
 <div id="checkoutModal" class="modal"><div class="modal-content"><h3>Your Order</h3><div id="cartItemsList"></div><div class="form-group"><label>Delivery Location</label><select id="locationSelect"><option value="VI_Ikoyi" data-fee="4500">VI/Ikoyi - ₦4,500</option><option value="Lekki_Ph1_Ikate" data-fee="4000">Lekki Ph1 - ₦4,000</option><option value="Agungi_Osapa_Chevron" data-fee="3500">Agungi/Osapa - ₦3,500</option><option value="Lagos_Island" data-fee="5000">Lagos Island - ₦5,000</option><option value="Orchid_Ikota" data-fee="2500">Orchid/Ikota - ₦2,500</option><option value="Other" data-fee="0">Other (price varies) - ₦0</option></select></div><div class="form-group"><label>Full Address</label><textarea id="address" rows="2"></textarea></div><div class="form-group"><label>Full Name</label><input type="text" id="customerName"></div><div class="form-group"><label>WhatsApp Phone</label><input type="tel" id="customerPhone"></div><div class="cost-breakdown"><div class="cost-row"><span>Subtotal</span><span id="subtotalDisplay">₦0</span></div><div class="cost-row"><span>Delivery Fee</span><span id="deliveryFeeDisplay">₦0</span></div></div><div id="cartTotal" class="cart-total">Total: ₦0</div><button id="sendWhatsapp" class="checkout-btn">Send Order</button><button id="closeModal" class="checkout-btn secondary-btn">Close</button></div></div>
 
-<!-- Contact Modal with Location Card -->
 <div id="contactModal" class="modal contact-modal">
   <div class="modal-content">
     <h2><i class="fas fa-headset"></i> We're Here to Help</h2>
@@ -244,7 +280,14 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/2347088820913" target="_blank" class="floating-whatsapp" id="floatingWhatsApp" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ====== JAVASCRIPT (updated for clean tracking) ====== -->
 <script>
+  // -------- DATA (unchanged) --------
   const parfaitItems = [
     { name: "Small Cup Parfait", desc: "250ml - Made with thick Greek yogurt and fresh fruits , drizzled with honey and topped with crunchy granola.", price: 4000, img: "small.jpg" },
     { name: "Medium Size Parfait", desc: "450ml - Made with thick Greek yogurt and fresh fruits , drizzled with honey and topped with crunchy granola.", price: 7000, img: "medium.jpg" },
@@ -261,63 +304,6 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
       { name: "21k Combo B", desc: "1 550ml + 1 450ml + 200ml parfait", price: 21000, img: "21.jpg" }
     ]}
   ];
-  let cart = [];
-  const cartItemsList = document.getElementById('cartItemsList');
-  const subtotalDisplay = document.getElementById('subtotalDisplay');
-  const deliveryFeeDisplay = document.getElementById('deliveryFeeDisplay');
-  const cartTotalEl = document.getElementById('cartTotal');
-  const locationSelect = document.getElementById('locationSelect');
-  const addressTextarea = document.getElementById('address');
-  const customerName = document.getElementById('customerName');
-  const customerPhone = document.getElementById('customerPhone');
-
-  function updateCartBadge() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0); }
-  function showToast(msg) { let t=document.createElement('div'); t.innerText=msg; t.style.position='fixed'; t.style.bottom='80px'; t.style.left='50%'; t.style.transform='translateX(-50%)'; t.style.backgroundColor='#1E1B17'; t.style.color='white'; t.style.padding='10px 18px'; t.style.borderRadius='40px'; t.style.zIndex='1200'; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); }
-  function addToCart(name, price) { let existing = cart.find(i=>i.name===name); if(existing) existing.quantity++; else cart.push({name, price, quantity:1}); updateCartBadge(); showToast(`✓ ${name} added`); if(document.getElementById('checkoutModal').style.display==='flex') { renderCartModal(); updateTotals(); } }
-  function getSubtotal() { return cart.reduce((s,i)=>s+(i.price*i.quantity),0); }
-  function getDeliveryFee() { let opt=locationSelect.options[locationSelect.selectedIndex]; return parseInt(opt.getAttribute('data-fee'))||0; }
-  function updateTotals() { let sub=getSubtotal(); let fee=getDeliveryFee(); subtotalDisplay.innerText=`₦${sub.toLocaleString()}`; deliveryFeeDisplay.innerText=fee===0 ? 'To be confirmed' : `₦${fee.toLocaleString()}`; cartTotalEl.innerHTML=fee===0 ? `Total: ₦${sub.toLocaleString()} + delivery` : `Total: ₦${(sub+fee).toLocaleString()}`; }
-  function renderCartModal() { if(!cartItemsList) return; if(cart.length===0){ cartItemsList.innerHTML='<div style="text-align:center;padding:30px;"><i class="fas fa-shopping-cart" style="font-size:2rem; opacity:0.5;"></i><p>Your cart is empty</p></div>'; updateTotals(); return; } let html=''; cart.forEach((item,idx)=>{ html+=`<div class="cart-item"><div><strong>${item.name}</strong><br><small>₦${item.price.toLocaleString()} each</small></div><div>₦${(item.price*item.quantity).toLocaleString()}</div><div class="cart-item-controls"><button class="qty-minus" data-idx="${idx}">−</button><span>${item.quantity}</span><button class="qty-plus" data-idx="${idx}">+</button><button class="remove-item-btn" data-idx="${idx}"><i class="fas fa-trash"></i></button></div></div>`; }); cartItemsList.innerHTML=html; document.querySelectorAll('.qty-plus').forEach(btn=>btn.addEventListener('click',(e)=>{ let idx=parseInt(btn.dataset.idx); cart[idx].quantity++; updateCartBadge(); renderCartModal(); updateTotals(); })); document.querySelectorAll('.qty-minus').forEach(btn=>btn.addEventListener('click',(e)=>{ let idx=parseInt(btn.dataset.idx); if(cart[idx].quantity>1) cart[idx].quantity--; else cart.splice(idx,1); updateCartBadge(); renderCartModal(); updateTotals(); })); document.querySelectorAll('.remove-item-btn').forEach(btn=>btn.addEventListener('click',(e)=>{ let idx=parseInt(btn.dataset.idx); cart.splice(idx,1); updateCartBadge(); renderCartModal(); updateTotals(); })); updateTotals(); }
-  function generateWhatsAppMessage() { if(!cart.length) return ""; let sub=getSubtotal(); let fee=getDeliveryFee(); let total=sub+fee; let loc=locationSelect.options[locationSelect.selectedIndex].text; let addr=addressTextarea.value.trim()||"—"; let name=customerName.value.trim()||"—"; let phone=customerPhone.value.trim()||"—"; let items=cart.map(i=>`🍪 ${i.quantity} x ${i.name} — ₦${(i.price*i.quantity).toLocaleString()}`).join('\n'); return `🍪 *FANCY'S TREATS ORDER* 🥤\n\n${items}\n────────────────\n📦 Subtotal: ₦${sub.toLocaleString()}\n🚚 Delivery: ${loc}\n💰 TOTAL: ${fee===0 ? `₦${sub.toLocaleString()} + delivery to be confirmed` : `₦${total.toLocaleString()}`}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${addr}\n\n✨ *Thank you for choosing Fancy's Treats!*`; }
-  function openCheckoutModal() { if(!cart.length){ showToast("Cart is empty, add some treats first!"); return; } renderCartModal(); document.getElementById('checkoutModal').style.display='flex'; updateTotals(); }
-  function closeModal() { document.getElementById('checkoutModal').style.display='none'; }
-  function sendOrderToWhatsApp() { if(!cart.length){ closeModal(); return; } if(!addressTextarea.value.trim()){ showToast("Please enter your delivery address"); return; } if(!customerName.value.trim()){ showToast("Please enter your name"); return; } if(!customerPhone.value.trim()){ showToast("Please enter your WhatsApp phone number"); return; } let msg=generateWhatsAppMessage(); window.open(`https://wa.me/2347088820913?text=${encodeURIComponent(msg)}`,'_blank'); cart=[]; updateCartBadge(); closeModal(); showToast("Order sent! We'll respond on WhatsApp."); }
-  function truncateText(t,ml=70){ if(t.length<=ml) return{short:t,full:t,needs:false}; let short=t.substring(0,ml)+'...'; return{short,full:t,needs:true}; }
-  function createDescHtml(desc){ let t=truncateText(desc); if(!t.needs) return `<div class="desc-text">${desc}</div>`; return `<div class="desc-text"><span class="short-desc">${t.short}</span><span class="full-desc" style="display:none;">${desc}</span><span class="read-more-link">Read more</span></div>`; }
-  function attachReadMore(){ document.querySelectorAll('.read-more-link').forEach(link=>{ link.removeEventListener('click',link._h); let h=(e)=>{ let div=link.closest('.desc-text'); let short=div.querySelector('.short-desc'); let full=div.querySelector('.full-desc'); if(full.style.display==='none'){ short.style.display='none'; full.style.display='inline'; link.textContent='Read less'; }else{ short.style.display='inline'; full.style.display='none'; link.textContent='Read more'; } }; link.addEventListener('click',h); link._h=h; }); }
-  function renderParfaitSection() {
-    const container = document.getElementById('parfait-scroll-container');
-    if(!container) return;
-    container.innerHTML = parfaitItems.map((item) => `<div class="food-card"><img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Parfait'"><h4>${item.name}</h4>${createDescHtml(item.desc)}<div class="price">₦${item.price.toLocaleString()}</div><button class="add-to-cart" data-name="${item.name}" data-price="${item.price}">Add to Cart</button></div>`).join('');
-    attachReadMore();
-    document.querySelectorAll('#parfait-scroll-container .add-to-cart').forEach(btn => { btn.addEventListener('click',()=>{ addToCart(btn.dataset.name, parseInt(btn.dataset.price)); }); });
-    const scrollRow = container;
-    const dotsContainer = document.getElementById('parfait-dots');
-    if(dotsContainer && parfaitItems.length){
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < parfaitItems.length; i++) {
-        const dot = document.createElement('div'); dot.classList.add('dot');
-        dot.addEventListener('click', () => { const cardWidth = document.querySelector('#parfait-scroll-container .food-card')?.offsetWidth || 280; const gap = 20; scrollRow.scrollTo({ left: (cardWidth + gap) * i, behavior: 'smooth' }); });
-        dotsContainer.appendChild(dot);
-      }
-      const updateActive = () => { const cardWidth = document.querySelector('#parfait-scroll-container .food-card')?.offsetWidth || 280; const gap = 20; const activeIndex = Math.round(scrollRow.scrollLeft / (cardWidth + gap)); const dots = dotsContainer.querySelectorAll('.dot'); dots.forEach((dot, idx) => { if (idx === activeIndex) dot.classList.add('active'); else dot.classList.remove('active'); }); };
-      scrollRow.addEventListener('scroll', updateActive); setTimeout(updateActive, 100);
-    }
-  }
-  function renderVerticalPacks() {
-    const container = document.getElementById('vertical-packs-container');
-    let finalHtml = '';
-    for(let i=0; i<packCategories.length; i++) {
-      const cat = packCategories[i];
-      finalHtml += `<div class="pack-category"><div class="category-header"><div class="category-icon"><i class="fas ${cat.icon}"></i></div><div><div class="category-title">${cat.name}</div><div class="category-sub">Freshly prepared just for you</div></div></div><div class="vertical-cards-list">${cat.items.map(item => `<div class="vertical-pack-card"><div class="card-img"><img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/200x200?text=Yummy'"></div><div class="card-content"><h4>${item.name}</h4>${createDescHtml(item.desc)}<span class="price-badge">₦${item.price.toLocaleString()}</span></div><div class="card-action"><button class="add-to-cart-btn" data-name="${item.name}" data-price="${item.price}"><i class="fas fa-cart-plus"></i> Add</button></div></div>`).join('')}</div></div>`;
-      if(cat.name === "🎁 Combo Deals") {
-        finalHtml += `<div class="toppings-extra-block"><div class="toppings-header"><div class="toppings-header-icon"><i class="fas fa-seedling"></i></div><div><div class="toppings-header-text">✨ Customize Your Treat ✨</div><div class="toppings-sub">Add premium extra toppings</div></div></div><div class="toppings-grid-2-1"><div class="topping-card"><div class="topping-icon"><i class="fas fa-seedling"></i></div><h4>Granola Topping</h4><div class="topping-desc">Extra granola crunch</div><span class="topping-price">₦1,000</span><button class="add-to-cart-btn" data-name="Granola Topping" data-price="1000">Add Granola</button></div><div class="topping-card"><div class="topping-icon"><i class="fas fa-ice-cream"></i></div><h4>Yoghurt Topping</h4><div class="topping-desc">Extra creamy yoghurt</div><span class="topping-price">₦2,000</span><button class="add-to-cart-btn" data-name="Yoghurt Topping" data-price="2000">Add Yoghurt</button></div></div></div>`;
-      }
-    }
-    container.innerHTML = finalHtml;
-    attachReadMore();
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => { btn.addEventListener('click', () => { addToCart(btn.dataset.name, parseInt(btn.dataset.price)); }); });
-  }
   const cookieMenu = [
     { name: "Mini cup Cookies  🍪", desc: "Mini cookies baked fresh loaded with rich chocolate chunks and fillings + dipping dark Chocolate and white Chocolate.", price: 5000, img: "mini.jpg" },
     { name: "Cup Cookies 🍪", desc: "Mini cookies baked fresh loaded with rich chocolate chunks and fillings + dipping dark Chocolate and white Chocolate..", price: 10000, img: "cup.jpg" },
@@ -333,13 +319,227 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
     { name: "Oreo Delight✨", desc: "Crushed Oreo blended into a rich chocolate blend", price: 16000, img: "oreo.jpg" },
     { name: "Lotus Bliss✨", desc: "Biscofs spread and biscuits blended into a deep caramelised cream", price: 18000, img: "lotus.jpg" }
   ];
+
+  // -------- CART & UI FUNCTIONS (modified to store product IDs) --------
+  let cart = []; // each item: { id, name, price, quantity }
+  const cartItemsList = document.getElementById('cartItemsList');
+  const subtotalDisplay = document.getElementById('subtotalDisplay');
+  const deliveryFeeDisplay = document.getElementById('deliveryFeeDisplay');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const locationSelect = document.getElementById('locationSelect');
+  const addressTextarea = document.getElementById('address');
+  const customerName = document.getElementById('customerName');
+  const customerPhone = document.getElementById('customerPhone');
+
+  function updateCartBadge() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0); }
+  function showToast(msg) { let t=document.createElement('div'); t.innerText=msg; t.style.position='fixed'; t.style.bottom='80px'; t.style.left='50%'; t.style.transform='translateX(-50%)'; t.style.backgroundColor='#1E1B17'; t.style.color='white'; t.style.padding='10px 18px'; t.style.borderRadius='40px'; t.style.zIndex='1200'; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); }
+
+  // addToCart now accepts productId
+  function addToCart(productId, name, price) {
+    let existing = cart.find(i => i.id === productId);
+    if (existing) existing.quantity++;
+    else cart.push({ id: productId, name, price, quantity: 1 });
+    updateCartBadge();
+    showToast(`✓ ${name} added`);
+    // If modal is open, refresh it
+    if (document.getElementById('checkoutModal').style.display === 'flex') {
+      renderCartModal();
+      updateTotals();
+    }
+    // Reset InitiateCheckout flag so it can fire again on next open
+    checkoutFired = false;
+  }
+
+  function getSubtotal() { return cart.reduce((s,i)=>s+(i.price*i.quantity),0); }
+  function getDeliveryFee() { let opt=locationSelect.options[locationSelect.selectedIndex]; return parseInt(opt.getAttribute('data-fee'))||0; }
+  function updateTotals() { let sub=getSubtotal(); let fee=getDeliveryFee(); subtotalDisplay.innerText=`₦${sub.toLocaleString()}`; deliveryFeeDisplay.innerText=fee===0 ? 'To be confirmed' : `₦${fee.toLocaleString()}`; cartTotalEl.innerHTML=fee===0 ? `Total: ₦${sub.toLocaleString()} + delivery` : `Total: ₦${(sub+fee).toLocaleString()}`; }
+  function renderCartModal() {
+    if(!cartItemsList) return;
+    if(cart.length===0){
+      cartItemsList.innerHTML='<div style="text-align:center;padding:30px;"><i class="fas fa-shopping-cart" style="font-size:2rem; opacity:0.5;"></i><p>Your cart is empty</p></div>';
+      updateTotals();
+      return;
+    }
+    let html='';
+    cart.forEach((item,idx)=>{
+      html+=`<div class="cart-item"><div><strong>${item.name}</strong><br><small>₦${item.price.toLocaleString()} each</small></div><div>₦${(item.price*item.quantity).toLocaleString()}</div><div class="cart-item-controls"><button class="qty-minus" data-idx="${idx}">−</button><span>${item.quantity}</span><button class="qty-plus" data-idx="${idx}">+</button><button class="remove-item-btn" data-idx="${idx}"><i class="fas fa-trash"></i></button></div></div>`;
+    });
+    cartItemsList.innerHTML=html;
+    // Attach listeners for quantity changes
+    document.querySelectorAll('.qty-plus').forEach(btn=>btn.addEventListener('click',(e)=>{
+      let idx=parseInt(btn.dataset.idx);
+      cart[idx].quantity++;
+      updateCartBadge();
+      renderCartModal();
+      updateTotals();
+      checkoutFired = false; // cart changed, reset flag
+    }));
+    document.querySelectorAll('.qty-minus').forEach(btn=>btn.addEventListener('click',(e)=>{
+      let idx=parseInt(btn.dataset.idx);
+      if(cart[idx].quantity>1) cart[idx].quantity--;
+      else cart.splice(idx,1);
+      updateCartBadge();
+      renderCartModal();
+      updateTotals();
+      checkoutFired = false;
+    }));
+    document.querySelectorAll('.remove-item-btn').forEach(btn=>btn.addEventListener('click',(e)=>{
+      let idx=parseInt(btn.dataset.idx);
+      cart.splice(idx,1);
+      updateCartBadge();
+      renderCartModal();
+      updateTotals();
+      checkoutFired = false;
+    }));
+    updateTotals();
+  }
+
+  function generateWhatsAppMessage() {
+    if(!cart.length) return "";
+    let sub=getSubtotal();
+    let fee=getDeliveryFee();
+    let total=sub+fee;
+    let loc=locationSelect.options[locationSelect.selectedIndex].text;
+    let addr=addressTextarea.value.trim()||"—";
+    let name=customerName.value.trim()||"—";
+    let phone=customerPhone.value.trim()||"—";
+    let items=cart.map(i=>`🍪 ${i.quantity} x ${i.name} — ₦${(i.price*i.quantity).toLocaleString()}`).join('\n');
+    return `🍪 *FANCY'S TREATS ORDER* 🥤\n\n${items}\n────────────────\n📦 Subtotal: ₦${sub.toLocaleString()}\n🚚 Delivery: ${loc}\n💰 TOTAL: ${fee===0 ? `₦${sub.toLocaleString()} + delivery to be confirmed` : `₦${total.toLocaleString()}`}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${addr}\n\n✨ *Thank you for choosing Fancy's Treats!*`;
+  }
+
+  // -------- MODIFIED openCheckoutModal (now includes InitiateCheckout) --------
+  let checkoutFired = false;
+
+  function openCheckoutModal() {
+    if(!cart.length){ showToast("Cart is empty, add some treats first!"); return; }
+    // Fire InitiateCheckout if not fired yet for this cart session
+    if (!checkoutFired && typeof fbq === 'function') {
+      const productIds = cart.map(item => item.id);
+      const productNames = cart.map(item => item.name).join(', ');
+      const totalValue = getSubtotal();
+      fbq('track', 'InitiateCheckout', {
+        content_ids: productIds,
+        content_name: productNames,
+        content_type: 'product',
+        currency: 'NGN',
+        value: totalValue,
+        num_items: cart.reduce((s,i) => s + i.quantity, 0)
+      });
+      checkoutFired = true;
+    }
+    renderCartModal();
+    document.getElementById('checkoutModal').style.display='flex';
+    updateTotals();
+  }
+
+  function closeModal() { document.getElementById('checkoutModal').style.display='none'; }
+
+  function sendOrderToWhatsApp() {
+    if(!cart.length){ closeModal(); return; }
+    if(!addressTextarea.value.trim()){ showToast("Please enter your delivery address"); return; }
+    if(!customerName.value.trim()){ showToast("Please enter your name"); return; }
+    if(!customerPhone.value.trim()){ showToast("Please enter your WhatsApp phone number"); return; }
+    let msg=generateWhatsAppMessage();
+    window.open(`https://wa.me/2347088820913?text=${encodeURIComponent(msg)}`,'_blank');
+    cart = [];
+    updateCartBadge();
+    closeModal();
+    showToast("Order sent! We'll respond on WhatsApp.");
+    checkoutFired = false; // reset for next order
+  }
+
+  // -------- UTILITY FUNCTIONS (unchanged) --------
+  function truncateText(t,ml=70){ if(t.length<=ml) return{short:t,full:t,needs:false}; let short=t.substring(0,ml)+'...'; return{short,full:t,needs:true}; }
+  function createDescHtml(desc){ let t=truncateText(desc); if(!t.needs) return `<div class="desc-text">${desc}</div>`; return `<div class="desc-text"><span class="short-desc">${t.short}</span><span class="full-desc" style="display:none;">${desc}</span><span class="read-more-link">Read more</span></div>`; }
+  function attachReadMore(){ document.querySelectorAll('.read-more-link').forEach(link=>{ link.removeEventListener('click',link._h); let h=(e)=>{ let div=link.closest('.desc-text'); let short=div.querySelector('.short-desc'); let full=div.querySelector('.full-desc'); if(full.style.display==='none'){ short.style.display='none'; full.style.display='inline'; link.textContent='Read less'; }else{ short.style.display='inline'; full.style.display='none'; link.textContent='Read more'; } }; link.addEventListener('click',h); link._h=h; }); }
+
+  // -------- RENDERING FUNCTIONS (now include data-product-id and pass it to addToCart) --------
+  function renderParfaitSection() {
+    const container = document.getElementById('parfait-scroll-container');
+    if(!container) return;
+    container.innerHTML = parfaitItems.map((item, idx) => {
+      const id = `parfait_${idx}`;
+      return `<div class="food-card" data-product-id="${id}"><img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Parfait'"><h4>${item.name}</h4>${createDescHtml(item.desc)}<div class="price">₦${item.price.toLocaleString()}</div><button class="add-to-cart" data-product-id="${id}" data-name="${item.name}" data-price="${item.price}">Add to Cart</button></div>`;
+    }).join('');
+    attachReadMore();
+    document.querySelectorAll('#parfait-scroll-container .add-to-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = btn.dataset.productId;
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
+        addToCart(id, name, price);
+      });
+    });
+    // Carousel dots (unchanged)
+    const scrollRow = container;
+    const dotsContainer = document.getElementById('parfait-dots');
+    if(dotsContainer && parfaitItems.length){
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < parfaitItems.length; i++) {
+        const dot = document.createElement('div'); dot.classList.add('dot');
+        dot.addEventListener('click', () => { const cardWidth = document.querySelector('#parfait-scroll-container .food-card')?.offsetWidth || 280; const gap = 20; scrollRow.scrollTo({ left: (cardWidth + gap) * i, behavior: 'smooth' }); });
+        dotsContainer.appendChild(dot);
+      }
+      const updateActive = () => { const cardWidth = document.querySelector('#parfait-scroll-container .food-card')?.offsetWidth || 280; const gap = 20; const activeIndex = Math.round(scrollRow.scrollLeft / (cardWidth + gap)); const dots = dotsContainer.querySelectorAll('.dot'); dots.forEach((dot, idx) => { if (idx === activeIndex) dot.classList.add('active'); else dot.classList.remove('active'); }); };
+      scrollRow.addEventListener('scroll', updateActive); setTimeout(updateActive, 100);
+    }
+  }
+
+  function renderVerticalPacks() {
+    const container = document.getElementById('vertical-packs-container');
+    let finalHtml = '';
+    for(let i=0; i<packCategories.length; i++) {
+      const cat = packCategories[i];
+      let itemsHtml = cat.items.map((item, idx) => {
+        const id = `combo_${i}_${idx}`;
+        return `<div class="vertical-pack-card" data-product-id="${id}"><div class="card-img"><img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/200x200?text=Yummy'"></div><div class="card-content"><h4>${item.name}</h4>${createDescHtml(item.desc)}<span class="price-badge">₦${item.price.toLocaleString()}</span></div><div class="card-action"><button class="add-to-cart-btn" data-product-id="${id}" data-name="${item.name}" data-price="${item.price}"><i class="fas fa-cart-plus"></i> Add</button></div></div>`;
+      }).join('');
+      finalHtml += `<div class="pack-category"><div class="category-header"><div class="category-icon"><i class="fas ${cat.icon}"></i></div><div><div class="category-title">${cat.name}</div><div class="category-sub">Freshly prepared just for you</div></div></div><div class="vertical-cards-list">${itemsHtml}</div></div>`;
+      if(cat.name === "🎁 Combo Deals") {
+        finalHtml += `<div class="toppings-extra-block"><div class="toppings-header"><div class="toppings-header-icon"><i class="fas fa-seedling"></i></div><div><div class="toppings-header-text">✨ Customize Your Treat ✨</div><div class="toppings-sub">Add premium extra toppings</div></div></div><div class="toppings-grid-2-1">`;
+        const toppings = [
+          { name: "Granola Topping", price: 1000, id: "topping_granola" },
+          { name: "Yoghurt Topping", price: 2000, id: "topping_yoghurt" }
+        ];
+        toppings.forEach(t => {
+          finalHtml += `<div class="topping-card" data-product-id="${t.id}"><div class="topping-icon"><i class="fas fa-seedling"></i></div><h4>${t.name}</h4><div class="topping-desc">Extra ${t.name.toLowerCase()}</div><span class="topping-price">₦${t.price.toLocaleString()}</span><button class="add-to-cart-btn" data-product-id="${t.id}" data-name="${t.name}" data-price="${t.price}">Add ${t.name}</button></div>`;
+        });
+        finalHtml += `</div></div>`;
+      }
+    }
+    container.innerHTML = finalHtml;
+    attachReadMore();
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = btn.dataset.productId;
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
+        addToCart(id, name, price);
+      });
+    });
+  }
+
   function renderProducts() {
     const treatsContainer = document.getElementById('treats-scroll-container');
-    treatsContainer.innerHTML = cookieMenu.map((t, idx) => `<div class="food-card" data-index="${idx}"><img src="${t.img}" alt="${t.name}" onerror="this.src='https://placehold.co/300x300?text=Yummy'"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`).join('');
+    treatsContainer.innerHTML = cookieMenu.map((t, idx) => {
+      const id = `cookie_${idx}`;
+      return `<div class="food-card" data-product-id="${id}"><img src="${t.img}" alt="${t.name}" onerror="this.src='https://placehold.co/300x300?text=Yummy'"><h4>${t.name}</h4>${createDescHtml(t.desc)}<div class="price">₦${t.price.toLocaleString()}</div><button class="add-to-cart" data-product-id="${id}" data-name="${t.name}" data-price="${t.price}">Add to Cart</button></div>`;
+    }).join('');
     const shakesContainer = document.getElementById('shakes-grid');
-    shakesContainer.innerHTML = shakesData.map(s => `<div class="shake-card"><img src="${s.img}" alt="${s.name}" onerror="this.src='https://placehold.co/200x200?text=Shake'"><h4><span>${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescHtml(s.desc)}<button class="add-to-cart" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`).join('');
+    shakesContainer.innerHTML = shakesData.map((s, idx) => {
+      const id = `shake_${idx}`;
+      return `<div class="shake-card" data-product-id="${id}"><img src="${s.img}" alt="${s.name}" onerror="this.src='https://placehold.co/200x200?text=Shake'"><h4><span class="shake-name">${s.name}</span> <span class="shake-price">₦${s.price.toLocaleString()}</span></h4>${createDescHtml(s.desc)}<button class="add-to-cart" data-product-id="${id}" data-name="${s.name}" data-price="${s.price}">Add to Cart</button></div>`;
+    }).join('');
     attachReadMore();
-    document.querySelectorAll('.add-to-cart').forEach(btn => { btn.addEventListener('click',()=>{ addToCart(btn.dataset.name, parseInt(btn.dataset.price)); }); });
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = btn.dataset.productId;
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
+        addToCart(id, name, price);
+      });
+    });
+    // Carousel dots (unchanged)
     const scrollRow = treatsContainer;
     const dotsContainer = document.getElementById('carousel-dots');
     const totalCards = cookieMenu.length;
@@ -352,19 +552,137 @@ src="https://www.facebook.com/tr?id=1241870411438418&ev=PageView&noscript=1"
     function updateActiveDot() { const cardWidth = document.querySelector('.food-card')?.offsetWidth || 280; const gap = 20; const activeIndex = Math.round(scrollRow.scrollLeft / (cardWidth + gap)); const dots = document.querySelectorAll('#carousel-dots .dot'); dots.forEach((dot, idx) => { if (idx === activeIndex) dot.classList.add('active'); else dot.classList.remove('active'); }); }
     scrollRow.addEventListener('scroll', updateActiveDot); setTimeout(updateActiveDot, 100);
   }
+
+  // -------- EVENT LISTENERS (use the modified openCheckoutModal) --------
   document.getElementById('cartBtn').addEventListener('click', openCheckoutModal);
+  document.getElementById('heroOrderBtn').addEventListener('click', openCheckoutModal);
   document.getElementById('closeModal').addEventListener('click', closeModal);
   document.getElementById('sendWhatsapp').addEventListener('click', sendOrderToWhatsApp);
   document.getElementById('contactBtn').addEventListener('click',()=>document.getElementById('contactModal').style.display='flex');
   document.getElementById('closeContactModal').addEventListener('click',()=>document.getElementById('contactModal').style.display='none');
-  document.getElementById('heroOrderBtn').addEventListener('click', openCheckoutModal);
   window.onclick = (e) => { if(e.target.classList.contains('modal')) e.target.style.display='none'; };
   locationSelect?.addEventListener('change',()=>{ if(document.getElementById('checkoutModal').style.display==='flex') updateTotals(); });
   document.querySelectorAll('.nav-item[data-section]').forEach(btn => { btn.addEventListener('click', () => { if(btn.dataset.section==='home') window.scrollTo({top:0,behavior:'smooth'}); else if(btn.dataset.section==='menu') document.getElementById('menu').scrollIntoView({behavior:'smooth'}); else if(btn.dataset.section==='parfait') document.getElementById('parfait').scrollIntoView({behavior:'smooth'}); }); });
+
+  // ====== META PIXEL ENHANCED TRACKING ======
+  (function setupTracking() {
+    // -------- ViewContent: per product using IntersectionObserver --------
+    const viewedProducts = new Set();
+
+    function trackViewContent(productId, productName, price) {
+      if (typeof fbq !== 'function') return;
+      fbq('track', 'ViewContent', {
+        content_name: productName,
+        content_ids: [productId],
+        content_type: 'product',
+        currency: 'NGN',
+        value: price
+      });
+    }
+
+    // Helper to get product name and price from data arrays using productId
+    function getProductInfo(productId) {
+      // We'll search through all data arrays
+      const allItems = [
+        ...cookieMenu.map((item, idx) => ({ id: `cookie_${idx}`, name: item.name, price: item.price })),
+        ...shakesData.map((item, idx) => ({ id: `shake_${idx}`, name: item.name, price: item.price })),
+        ...parfaitItems.map((item, idx) => ({ id: `parfait_${idx}`, name: item.name, price: item.price })),
+        ...packCategories.flatMap((cat, ci) => cat.items.map((item, idx) => ({ id: `combo_${ci}_${idx}`, name: item.name, price: item.price }))),
+        { id: 'topping_granola', name: 'Granola Topping', price: 1000 },
+        { id: 'topping_yoghurt', name: 'Yoghurt Topping', price: 2000 }
+      ];
+      return allItems.find(item => item.id === productId) || null;
+    }
+
+    function observeProductCards() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            const id = card.getAttribute('data-product-id');
+            if (!id || viewedProducts.has(id)) return;
+            const info = getProductInfo(id);
+            if (info) {
+              trackViewContent(id, info.name, info.price);
+              viewedProducts.add(id);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.food-card, .shake-card, .vertical-pack-card, .topping-card').forEach(card => {
+        observer.observe(card);
+      });
+    }
+
+    // Also check initial visibility for already visible cards
+    function checkInitialVisibility() {
+      document.querySelectorAll('.food-card, .shake-card, .vertical-pack-card, .topping-card').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const winHeight = window.innerHeight || document.documentElement.clientHeight;
+        const winWidth = window.innerWidth || document.documentElement.clientWidth;
+        if (rect.top < winHeight && rect.bottom > 0 && rect.left < winWidth && rect.right > 0) {
+          const id = card.getAttribute('data-product-id');
+          if (id && !viewedProducts.has(id)) {
+            const info = getProductInfo(id);
+            if (info) {
+              trackViewContent(id, info.name, info.price);
+              viewedProducts.add(id);
+            }
+          }
+        }
+      });
+    }
+
+    // -------- Lead event with cart product IDs --------
+    function fireLeadEvent() {
+      if (typeof fbq !== 'function') return;
+      let productIds = cart.length > 0 ? cart.map(item => item.id) : ['direct_inquiry'];
+      let productNames = cart.length > 0 ? cart.map(item => item.name).join(', ') : 'General Inquiry';
+      let totalValue = cart.length > 0 ? getSubtotal() : 0;
+      fbq('track', 'Lead', {
+        content_ids: productIds,
+        content_name: productNames,
+        content_type: 'product',
+        currency: 'NGN',
+        value: totalValue
+      });
+    }
+
+    // -------- Attach Lead to all WhatsApp buttons --------
+    function attachLeadToWhatsAppButtons() {
+      document.querySelector('.whatsapp-direct-btn')?.addEventListener('click', fireLeadEvent);
+      document.getElementById('floatingWhatsApp')?.addEventListener('click', fireLeadEvent);
+      document.getElementById('sendWhatsapp')?.addEventListener('click', function() {
+        if (cart.length > 0) fireLeadEvent();
+      });
+    }
+
+    // -------- Initialize tracking --------
+    function initTracking() {
+      // Wait for DOM to be ready
+      setTimeout(() => {
+        observeProductCards();
+        checkInitialVisibility();
+        attachLeadToWhatsAppButtons();
+      }, 300);
+    }
+
+    if (document.readyState === 'complete') {
+      setTimeout(initTracking, 200);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(initTracking, 200);
+      });
+    }
+  })();
+
+  // -------- INITIAL RENDER --------
   renderVerticalPacks();
   renderProducts();
   renderParfaitSection();
   updateCartBadge();
+
 </script>
 </body>
 </html>
